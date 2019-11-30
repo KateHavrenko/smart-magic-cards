@@ -30,7 +30,8 @@
   },
   "homepage": "https://github.com/smartpension/smart-magic-cards#readme",
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.4.1",
+    "yarn": "^1.19.2"
   },
   "devDependencies": {
     "cypress": "^3.6.0",
