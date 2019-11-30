@@ -19,6 +19,7 @@ function createCards() {
   }
   if (snuffleCards) cards.sort(() => Math.random() - 0.5);
 
+
   // For each dataObject, create a new card and append it to the DOM
   cards.forEach((card, i) => {
     const positionFromLeft = i * 25;
@@ -50,7 +51,11 @@ function createButtons() {
       createCards();
     });
 
- 
+    document.querySelector('#magic').addEventListener('click', function(){
+      cardsWrapperInner.parentNode.removeChild(cardsWrapperInner);
+      magic();
+      createCards();
+    });
 }
 
 let showCards = false;
@@ -67,6 +72,12 @@ function shuffle() {
   console.log('kooo');
 }
 
+// let magicCards = false;
+function magic() {
+  snuffleCards = false;
+  cards = [];
+  // magicCards = true;
+}
 
 // if (snuffleCards) createCards();
 
