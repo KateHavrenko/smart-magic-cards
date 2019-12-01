@@ -5803,7 +5803,7 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-.cards-wrapper .card.hearts {
+.cards-wrapper .card.hearts div {
   color: #ff4d4d;
 }
 .cards-wrapper .card.hearts .suit {

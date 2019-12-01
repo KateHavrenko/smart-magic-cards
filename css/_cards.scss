@@ -15,18 +15,20 @@
     -webkit-transition: left 2s; /* For Safari 3.1 to 6.0 */
     transition: left 2s;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid $black;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     &.hearts {
-      color: #ff4d4d;
+      div {
+        color: $special-red;
+      }
       .suit {
       width: 100px;
       height: 100px;
-      background-color: #ff4d4d ;
+      background-color: $special-red ;
       transform: rotate(45deg) ;
       }
     }
@@ -37,7 +39,7 @@
       height: 100px ;
       position: absolute ;
       border-radius: 100% ;
-      background-color: #ff4d4d;
+      background-color: $special-red;
       }
     }
     &.hearts {
@@ -54,12 +56,15 @@
     }
     
     &.diamonds {
-      color: #ff4d4d;
+      div {
+        color: $special-red;
+      }
+      color: $special-red;
       .suit{
         width: 0;
         height: 0;
         border: 50px solid transparent;
-        border-bottom: 100px solid red;
+        border-bottom: 100px solid $red;
         position: relative;
         top: -50px;
       }
@@ -74,7 +79,7 @@
         width: 0;
         height: 0;
         border: 50px solid transparent;
-        border-top: 100px solid red;
+        border-top: 100px solid $red;
       }
     }
 
@@ -82,7 +87,7 @@
       .suit {
       width: 100px ;
       height: 100px ;
-      background-color: black ;
+      background-color: $black ;
       transform: rotate(225deg) ;
       }
     }
@@ -93,7 +98,7 @@
       height: 100px ;
       position: absolute ;
       border-radius: 100% ;
-      background-color: black ;
+      background-color: $black ;
       }
     }
     &.spades {
@@ -111,7 +116,7 @@
         width: 30px;
         height: 30px;
         position: absolute;
-        background-color: #000;
+        background-color: $black;
         bottom: 55px;
       }  
     }
@@ -123,7 +128,7 @@
       position: relative;
       top: -30px;
       border-radius: 50%;
-      background-color: black ;
+      background-color: $black ;
       transform: rotate(225deg) ;
       }
     }
@@ -134,7 +139,7 @@
       height: 100px ;
       position: absolute ;
       border-radius: 100% ;
-      background-color: black ;
+      background-color: $black ;
       }
     }
     &.clubs {
@@ -152,7 +157,7 @@
         width: 30px;
         height: 30px;
         position: absolute;
-        background-color: #000;
+        background-color: $black;
         bottom: 65px;
       }
     }
@@ -262,7 +267,6 @@
     bottom: 5px;
     right: 5px;
   }
-
 
   &.hidden {
     .card {
