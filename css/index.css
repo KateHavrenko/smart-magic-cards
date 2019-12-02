@@ -73,13 +73,13 @@ button.bg-warning:focus {
 }
 
 .bg-danger {
-  background-color: #dc3545 !important;
+  background-color: red !important;
 }
 
 a.bg-danger:hover, a.bg-danger:focus,
 button.bg-danger:hover,
 button.bg-danger:focus {
-  background-color: #bd2130 !important;
+  background-color: #cc0000 !important;
 }
 
 .bg-light {
@@ -171,7 +171,7 @@ button.bg-dark:focus {
 }
 
 .border-danger {
-  border-color: #dc3545 !important;
+  border-color: red !important;
 }
 
 .border-light {
@@ -3742,11 +3742,11 @@ a.text-warning:hover, a.text-warning:focus {
 }
 
 .text-danger {
-  color: #dc3545 !important;
+  color: red !important;
 }
 
 a.text-danger:hover, a.text-danger:focus {
-  color: #a71d2a !important;
+  color: #b30000 !important;
 }
 
 .text-light {
@@ -4315,32 +4315,32 @@ fieldset:disabled a.btn {
 
 .btn-danger {
   color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  background-color: red;
+  border-color: red;
 }
 .btn-danger:hover {
   color: #fff;
-  background-color: #c82333;
-  border-color: #bd2130;
+  background-color: #d90000;
+  border-color: #cc0000;
 }
 .btn-danger:focus, .btn-danger.focus {
   color: #fff;
-  background-color: #c82333;
-  border-color: #bd2130;
-  box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
+  background-color: #d90000;
+  border-color: #cc0000;
+  box-shadow: 0 0 0 0.2rem rgba(255, 38, 38, 0.5);
 }
 .btn-danger.disabled, .btn-danger:disabled {
   color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  background-color: red;
+  border-color: red;
 }
 .btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active, .show > .btn-danger.dropdown-toggle {
   color: #fff;
-  background-color: #bd2130;
-  border-color: #b21f2d;
+  background-color: #cc0000;
+  border-color: #bf0000;
 }
 .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-danger.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 38, 38, 0.5);
 }
 
 .btn-light {
@@ -4529,28 +4529,28 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-danger {
-  color: #dc3545;
-  border-color: #dc3545;
+  color: red;
+  border-color: red;
 }
 .btn-outline-danger:hover {
   color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  background-color: red;
+  border-color: red;
 }
 .btn-outline-danger:focus, .btn-outline-danger.focus {
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.5);
 }
 .btn-outline-danger.disabled, .btn-outline-danger:disabled {
-  color: #dc3545;
+  color: red;
   background-color: transparent;
 }
 .btn-outline-danger:not(:disabled):not(.disabled):active, .btn-outline-danger:not(:disabled):not(.disabled).active, .show > .btn-outline-danger.dropdown-toggle {
   color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  background-color: red;
+  border-color: red;
 }
 .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .btn-outline-danger:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-danger.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.5);
 }
 
 .btn-outline-light {
@@ -5780,28 +5780,26 @@ h1 {
 
 .cards-wrapper {
   width: calc(100vw - 4rem);
-  height: 300px;
+  height: 290px;
   overflow: scroll;
   margin: 0 2rem;
   border-radius: 10px;
-  -webkit-transition: width 2s;
-  /* For Safari 3.1 to 6.0 */
-  transition: width 2s;
 }
 .cards-wrapper .card {
-  height: 300px;
-  width: 216px;
+  height: 290px;
+  width: 210px;
   position: absolute;
+  top: 20px;
   background-size: 100%;
-  -webkit-transition: left 2s;
-  /* For Safari 3.1 to 6.0 */
-  transition: left 2s;
+  -webkit-transition: left 2s, top 0.2s cubic-bezier(0.79, -0.68, 0.28, 1.28);
+  transition: left 2s, top 0.2s cubic-bezier(0.79, -0.68, 0.28, 1.28);
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #000;
   border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .cards-wrapper .card.hearts div {
   color: #ff4d4d;
@@ -5828,7 +5826,7 @@ h1 {
   top: 0px;
   left: -50px;
 }
-.cards-wrapper .card.diamonds {
+.cards-wrapper .card.diamonds div {
   color: #ff4d4d;
 }
 .cards-wrapper .card.diamonds .suit {
@@ -5852,7 +5850,7 @@ h1 {
 .cards-wrapper .card.spades .suit {
   width: 100px;
   height: 100px;
-  background-color: black;
+  background-color: #000;
   transform: rotate(225deg);
 }
 .cards-wrapper .card.spades .suit::after, .cards-wrapper .card.spades .suit::before {
@@ -5861,7 +5859,7 @@ h1 {
   height: 100px;
   position: absolute;
   border-radius: 100%;
-  background-color: black;
+  background-color: #000;
 }
 .cards-wrapper .card.spades .suit::after {
   bottom: 50px;
@@ -5884,7 +5882,7 @@ h1 {
   position: relative;
   top: -30px;
   border-radius: 50%;
-  background-color: black;
+  background-color: #000;
   transform: rotate(225deg);
 }
 .cards-wrapper .card.clubs .suit::after, .cards-wrapper .card.clubs .suit::before {
@@ -5893,7 +5891,7 @@ h1 {
   height: 100px;
   position: absolute;
   border-radius: 100%;
-  background-color: black;
+  background-color: #000;
 }
 .cards-wrapper .card.clubs .suit::after {
   bottom: 65px;
@@ -5951,6 +5949,7 @@ h1 {
 }
 .cards-wrapper .card:hover {
   z-index: 50;
+  top: 5px;
 }
 .cards-wrapper .value-top, .cards-wrapper .value-bottom {
   width: 30px;

@@ -1,9 +1,10 @@
-const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 const cardsWrapper = document.querySelector('.cards-wrapper');
 const buttonsWrapper = document.querySelector('.btn-wrapper');
 let cards = [];
 
-function createCards() {
+function createCards(shuffleCards) {
+  // Delete the cards if they are already on the page
   if (document.querySelector('.cards-wrapper-inner') !== null) {
     var element = document.querySelector('.cards-wrapper-inner');
     element.parentNode.removeChild(element);
@@ -20,8 +21,10 @@ function createCards() {
     }
   }
 
+  // Shuffle cards
   if (shuffleCards) cards.sort(() => Math.random() - 0.5);
 
+  // Create the container to store the cards 
   const cardsWrapperInner = document.createElement('div');
   cardsWrapperInner.classList.add('cards-wrapper-inner');
 
@@ -36,16 +39,22 @@ function createCards() {
     valueTop.classList.add('value-top');
     valueBottom.classList.add('value-bottom');
     cardElement.setAttribute('data-value', card.value);
-    cardElement.classList.add('card', `${card.suit}`, `${card.suit}-${card.value}`);
+    cardElement.classList.add('card', `${card.suit}-${card.value}`, `${card.suit}`);
     cardElement.style.left = `${positionFromLeft}px`;
     cardElement.append(valueTop);
     cardElement.append(valueBottom);
     cardElement.append(cardSuit);
     cardsWrapperInner.append(cardElement);
-    setTimeout(function(){ cardElement.style.left  = "0px" }, 0);
-    setTimeout(function(){ cardElement.style.left = `${positionFromLeft}px`; }, 2000);
+    setTimeout(function () { cardElement.style.left = "0px" }, 0);
+    setTimeout(function () { cardElement.style.left = `${positionFromLeft}px`; }, 2000);
   });
+  // Add inner container with cards to the main container
   cardsWrapper.append(cardsWrapperInner);
+
+  let spades = document.querySelectorAll('.spades');
+  let clubs = document.querySelectorAll('.clubs');
+  addTail(spades);
+  addTail(clubs);
 }
 
 function addTail(symbol) {
@@ -60,63 +69,46 @@ function addTail(symbol) {
 
 // Function to clear out the initial button and create new buttons to play the game.
 function createButtons() {
-  let game = document.querySelector('#start-game').style.display = 'none';
-  element.parentNode.removeChild(element);
-  const buttons = ['shuffle', 'show-hide', 'magic'];
+  let game = document.querySelector('#start-game');
+  game.parentNode.removeChild(game);
+  const buttons = ['Shuffle', 'Show/Hide', 'Magic'];
+  const ids = ['shuffle', 'show-hide', 'magic'];
   for (let btn in buttons) {
     let buttonElement = document.createElement('button');
-    buttonElement.id = buttons[btn];
+    buttonElement.id = ids[btn];
     buttonElement.innerHTML = buttons[btn];
     buttonElement.classList.add('btn', 'btn-lg', 'btn-secondary', `${buttons[btn]}`);
     buttonsWrapper.append(buttonElement);
   }
 
-    document.querySelector('#show-hide').addEventListener('click', hideCards);
-    document.querySelector('#shuffle').addEventListener('click', function(){
-      shuffle();
-      createCards();
-      let spades = document.querySelectorAll('.spades');
-      let clubs = document.querySelectorAll('.clubs');
-      addTail(spades);
-      addTail(clubs);
-    });
-
-    document.querySelector('#magic').addEventListener('click', function(){
-      magic();
-      createCards();
-      let spades = document.querySelectorAll('.spades');
-      let clubs = document.querySelectorAll('.clubs');
-      addTail(spades);
-      addTail(clubs);
-    });
+  document.querySelector('#show-hide').addEventListener('click', hideCards);
+  document.querySelector('#shuffle').addEventListener('click', shuffle);
+  document.querySelector('#magic').addEventListener('click', magic);
 }
 
 let showCards = false;
 function hideCards() {
   showCards = !showCards;
   showCards ? cardsWrapper.classList.add('hidden') :
-  cardsWrapper.classList.remove('hidden');
+    cardsWrapper.classList.remove('hidden');
   let suits = document.querySelectorAll('.card div')
-  if (showCards) {
-    for (let i = 0; i < suits.length; i++) {
+  for (let i = 0; i < suits.length; i++) {
+    if (showCards) {
       suits[i].style.display = 'none';
-    }
-  } else {
-    for (let j = 0; j < suits.length; j++) {
-      suits[j].style.display = 'block';
+    } else {
+      suits[i].style.display = 'block';
     }
   }
 }
 
-let shuffleCards = false;
 function shuffle() {
-  shuffleCards = true;
   cards = [];
+  createCards(true);
 }
 
 function magic() {
-  shuffleCards = false;
   cards = [];
+  createCards(false);
 }
 
 // Function to start the game by clearing the wrapper, creating
@@ -124,10 +116,6 @@ function magic() {
 function startGame() {
   createButtons();
   createCards();
-  let spades = document.querySelectorAll('.spades');
-  let clubs = document.querySelectorAll('.clubs');
-  addTail(spades);
-  addTail(clubs);
 }
 
 document.getElementById('start-game').addEventListener('click', startGame);

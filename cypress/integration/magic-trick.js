@@ -13,7 +13,20 @@ describe('Play game', () => {
     cy.get('#start-game').should('have.text', "Let's get started").click();
     cy.get('[class*="hearts-"]').should('have.length', 13);
 
+    // my test
+    cy.get('.card').should('have.length', 52);
+
     cy.get('#start-game').should('have.not.exist');
+
+    // my test
+    cy.get('.cards-wrapper-inner').should('have.exist');
+    cy.get('.value-top').should('have.length', 52);
+    cy.get('.value-bottom').should('have.length', 52);
+    cy.get('.tail').should('have.length', 26);
+    cy.get('#magic').should('have.text', 'Magic');
+    cy.get('.card').should('have.class', 'hearts-1');
+
+
     suits.forEach((suit) => {
       cy.get(`[class*="${suit}-"]`).should('have.length', 13);
     });

@@ -4,22 +4,22 @@
   overflow: scroll;
   margin: 0 2rem;
   border-radius: 10px;
-  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
-  transition: width 2s;
   
   .card {
     height: $card-height;
     width: $card-width;
     position: absolute;
+    top: 20px;
     background-size: 100%;
-    -webkit-transition: left 2s; /* For Safari 3.1 to 6.0 */
-    transition: left 2s;
+    -webkit-transition: left 2s, top 0.2s cubic-bezier(0.79, -0.68, 0.28, 1.28);
+    transition: left 2s, top 0.2s cubic-bezier(0.79, -0.68, 0.28, 1.28); 
     background-color: white;
     border: 1px solid $black;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     &.hearts {
       div {
@@ -59,7 +59,6 @@
       div {
         color: $special-red;
       }
-      color: $special-red;
       .suit{
         width: 0;
         height: 0;
@@ -243,6 +242,7 @@
 
     &:hover {
       z-index: 50;
+      top: 5px;
     }
   }
 
